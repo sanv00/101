@@ -1,0 +1,61 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() 
+{
+    int T;
+    cin>>T;
+    for(int i=0;i<T;i++)
+    {
+        int n,a,zero=0,tot=1,add=0,lol=0;
+        cin>>n;
+        for(int i=1;i<=n;i++)
+        {
+            cin>>a;
+            if(a==0)
+            {   zero++; continue; }
+            if(a>=n || a>=i) 
+            {   
+                cout<<"0"<<endl;
+                break;   
+            }
+            if(a==1)
+            {
+                add++;
+            }
+            else if(a==i-1)
+            {
+                lol++;
+            }
+
+
+        }
+        if(zero==n)
+        {
+            //cout<<endl<<"z:"<<zero<<"n:"<<n<<endl;
+            for(int i=1;i<=n;i++)
+            {
+                tot=tot*i;
+            }
+            cout<<tot<<endl;
+        }
+        else if(lol>=add)
+        {
+            cout<<"1"<<endl;
+        }
+        else
+        {
+            cout<<pow(2,add)<<endl;
+        }
+        
+    }
+
+
+
+    return 0;
+}
